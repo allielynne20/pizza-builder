@@ -8,8 +8,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.use(require("./routes"));
-
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/pizza-hunt",
   {
@@ -18,6 +16,8 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
+
+app.use(require("./routes"));
 
 //Use this to log mongo queries being executed!
 mongoose.set("debug", true);
