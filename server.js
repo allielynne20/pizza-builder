@@ -10,7 +10,7 @@ app.use(express.static("public"));
 
 app.use(require("./routes"));
 
-mongoose.mongoose.connect(
+mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/pizza-hunt",
   {
     useFindAndModify: false,
